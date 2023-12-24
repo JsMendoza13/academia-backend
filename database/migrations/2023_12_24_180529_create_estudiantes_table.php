@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('estudiantes', function (Blueprint $table) {
+            /*Instruccion para realizar borrado en cascada*/
             $table->engine = "InnoDB";
+            /*Identificacion unica en la tabla*/
             $table->bigIncrements("id");
+            /*Campos*/
             $table->string("nombres");
             $table->string("apellidos");
             $table->string("telefono");
@@ -22,6 +25,7 @@ return new class extends Migration
             $table->integer("semestre");
             $table->integer("credito");
             $table->float("nota");
+            /*Tiempo automatico por laravel, actualizar modificar*/
             $table->timestamps();
         });
     }
