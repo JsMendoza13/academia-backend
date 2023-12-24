@@ -17,16 +17,17 @@ return new class extends Migration
             /*Identificacion unica en la tabla*/
             $table->bigIncrements("id")->unique();
             /*Clave foranea de Estudiante -> (unsigned = para evitar datos negativos)*/
-            $table->bigInteger('estudiante_id')->unsigned();
-            /*Se continua agregando los campos para tabla*/
+            /*$table->unsignedBigInteger('estudiante_id')->nullable()->default(0);
+            Se continua agregando los campos para tabla*/
             $table->string("nombre");
             $table->text("descripcion");
             $table->integer("credito");
+            $table->integer("horas");
             $table->string("areaConocimiento");
             /*Tiempo automatico por laravel, actualizar modificar*/
             $table->timestamps();
-            /*FOREIGN entre tabla ESTUDIANTE con el campo estudiante_id ->onDelete (borrado en cascada)*/
-            $table->foreign('estudiante_id')->references('id')->on('estudiantes')->onDelete("cascade");
+            /*FOREIGN entre tabla ESTUDIANTE con el campo estudiante_id ->onDelete (borrado en cascada)
+            $table->foreign('estudiante_id')->references('id')->on('estudiantes')->onDelete("cascade");*/
         });
     }
 

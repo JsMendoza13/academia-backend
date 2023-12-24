@@ -17,10 +17,10 @@ return new class extends Migration
             /*Identificacion unica en la tabla*/
             $table->bigIncrements("id");
             /*Clave foranea de Materia -> (unsigned = para evitar datos negativos)*/
-            $table->bigInteger('materia_id')->unsigned();
+            $table->unsignedBigInteger('materia_id')->nullable()->default(0);
             /*Se continua agregando los campos para tabla*/
             $table->string("nombres");
-            $table->string("apellido");
+            $table->string("apellidos");
             $table->string("email");
             $table->string("telefono");
             $table->string("direccion");
