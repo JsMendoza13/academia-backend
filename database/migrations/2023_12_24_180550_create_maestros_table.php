@@ -12,8 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('maestros', function (Blueprint $table) {
-            $table->id();
+            $table->engine = "InnoDB";
+            $table->bigIncrements("id");
+
+            $table->bigInteger('materia_id')->unsigned();
+
+            $table->string("nombres");
+            $table->string("apellido");
+            $table->string("email");
+            $table->string("telefono");
+            $table->string("direccion");
+            $table->string("ciudad");
             $table->timestamps();
+
+            $table->foreign('materia_id')->references('id')->on('materias')->onDelete("cascade");
         });
     }
 

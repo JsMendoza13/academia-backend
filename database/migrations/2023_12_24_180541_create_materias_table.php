@@ -12,8 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('materias', function (Blueprint $table) {
-            $table->id();
+            $table->engine = "InnoDB";
+            $table->bigIncrements("id")->unique();
+
+            $table->bigInteger('estudiante_id')->unsigned();
+
+            $table->string("nombre");
+            $table->text("descripcion");
+            $table->integer("credito");
+            $table->string("areaConocimiento");
             $table->timestamps();
+
+            $table->foreign('estudiante_id')->references('id')->on('estudiantes')->onDelete("cascade");
         });
     }
 
