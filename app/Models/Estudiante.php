@@ -11,7 +11,17 @@ class Estudiante extends Model
     use HasFactory;
 
     public $table = "estudiantes";
-    protected $fillable = array("*");
+    protected $fillable = [
+        'nombres',
+        'apellidos',
+        'telefono',
+        'direccion',
+        'ciudad',
+        'semestre',
+        'credito',
+        'nota'
+
+    ];
 
     public function materia()
     {
