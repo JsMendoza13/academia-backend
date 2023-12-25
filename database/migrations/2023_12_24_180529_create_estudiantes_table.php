@@ -16,7 +16,7 @@ return new class extends Migration
             $table->engine = "InnoDB";
             /*Identificacion unica en la tabla*/
             $table->bigIncrements("id");
-            /*Campos*/
+            /*---campos--*/
             $table->string("nombres");
             $table->string("apellidos");
             $table->string("telefono");

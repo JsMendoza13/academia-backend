@@ -16,9 +16,7 @@ return new class extends Migration
             $table->engine = "InnoDB";
             /*Identificacion unica en la tabla*/
             $table->bigIncrements("id")->unique();
-            /*Clave foranea de Estudiante -> (unsigned = para evitar datos negativos)*/
-            /*$table->unsignedBigInteger('estudiante_id')->nullable()->default(0);
-            Se continua agregando los campos para tabla*/
+            /*---campos--*/
             $table->string("nombre");
             $table->text("descripcion");
             $table->integer("credito");
@@ -26,8 +24,6 @@ return new class extends Migration
             $table->string("areaConocimiento");
             /*Tiempo automatico por laravel, actualizar modificar*/
             $table->timestamps();
-            /*FOREIGN entre tabla ESTUDIANTE con el campo estudiante_id ->onDelete (borrado en cascada)
-            $table->foreign('estudiante_id')->references('id')->on('estudiantes')->onDelete("cascade");*/
         });
     }
 

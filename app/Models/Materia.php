@@ -16,9 +16,14 @@ class Materia extends Model
     {
         return $this->belongsToMany(
             Estudiante::class,
-            "materia_estudiante",
-            'estudiante_id',
-            'materia_id'
+            "estudiante_materia"
+        );
+    }
+    public function maestros()
+    {
+        return $this->belongsToMany(
+            Maestro::class,
+            "maestro_materia"
         );
     }
 }

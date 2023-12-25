@@ -16,9 +16,7 @@ return new class extends Migration
             $table->engine = "InnoDB";
             /*Identificacion unica en la tabla*/
             $table->bigIncrements("id");
-            /*Clave foranea de Materia -> (unsigned = para evitar datos negativos)*/
-            $table->unsignedBigInteger('materia_id')->nullable()->default(0);
-            /*Se continua agregando los campos para tabla*/
+            /*---campos--*/
             $table->string("nombres");
             $table->string("apellidos");
             $table->string("email");
@@ -27,8 +25,6 @@ return new class extends Migration
             $table->string("ciudad");
             /*Tiempo automatico por laravel, actualizar modificar*/
             $table->timestamps();
-            /*FOREIGN entre tabla MATERIA con el campo materia_id ->onDelete (borrado en cascada)*/
-            $table->foreign('materia_id')->references('id')->on('materias')->onDelete("cascade");
         });
     }
 

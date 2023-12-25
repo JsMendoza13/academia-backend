@@ -16,6 +16,7 @@ class EstudianteFactory extends Factory
      */
     public function definition(): array
     {
+        /**Se crean datos random por medio de faker */
         return [
             'nombres' => $this->faker->firstName(),
             'apellidos' => $this->faker->lastName(),

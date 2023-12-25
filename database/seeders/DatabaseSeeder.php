@@ -16,29 +16,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Estudiante::factory()->times(15)->create();
+        Estudiante::factory()->times(15)->create(); /*Se crean 15 datos de estudiantes*/
+        Maestro::factory()->times(6)->create(); /*Se crean 6 datos de maestros*/
         Materia::factory()->times(8)->create()->each(function ($materia) {
             $materia->estudiantes()->sync(
-                Estudiante::all()->random(2)
+                Estudiante::all()->random(3),
+                /*Se crean 8 materias y se le asigna de a 3 de manera random a los estudiantes*/
             );
         });
-
-
-        /*/ $estudiantesAleatorios = Estudiante::all()->random(24);
-
-        Materia::factory()->times(8)->create()->each(function ($materia, $i) use ($estudiantesAleatorios) {
-            $materia->estudiantes()->attach(
-                $estudiantesAleatorios->slice($i * 3, 3)
-            );
-        });
-        Maestro::factory()->times(6)->create();
-            */
-
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        /**Se asignan maestros a materias que no tengan asignados maestros*/
+        foreach (Materia::all() as $materia) {
+            if (!$materia->maestros()->exists()) {
+                $materia->maestros()->attach(
+                    Maestro::factory()->create()->id
+                );
+            }
+        }
     }
 }

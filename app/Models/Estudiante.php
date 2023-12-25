@@ -15,6 +15,6 @@ class Estudiante extends Model
 
     public function materia()
     {
-        return $this->belongsToMany(Materia::class, "materia_estudiante");
+        return $this->belongsToMany(Materia::class, "estudiante_materia");
     }
 }
