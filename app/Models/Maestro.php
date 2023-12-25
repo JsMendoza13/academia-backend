@@ -10,7 +10,14 @@ class Maestro extends Model
     use HasFactory;
 
     public $table = "maestros";
-    protected $fillable = array("*");
+    protected $fillable = [
+        'nombres',
+        'apellidos',
+        'email',
+        'telefono',
+        'direccion',
+        'ciudad',
+    ];
 
     public function materia()
     {

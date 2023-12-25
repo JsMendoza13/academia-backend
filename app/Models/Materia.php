@@ -10,7 +10,13 @@ class Materia extends Model
     use HasFactory;
 
     public $table = "materias";
-    protected $fillable = array("*");
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'credito',
+        'horas',
+        'areaConocimiento'
+    ];
 
     public function estudiantes()
     {
