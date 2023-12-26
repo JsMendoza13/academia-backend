@@ -12,7 +12,7 @@ El proyecto tiene como nombre de base de datos : projectacademia -> sin password
 - Con las tablas que contienen los siguientes campos y relación.
 ![01Tables](https://github.com/JsMendoza13/academia-backend/assets/123784036/2de07929-08dc-43a2-a92e-6327e0583d00)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Por medio de los Seeders, se crean de forma random informacion para las tablas.
 - Se debe ejecutar el comando, para actualizar información de las tablas. -> $php artisan migrate:fresh --seed
 
