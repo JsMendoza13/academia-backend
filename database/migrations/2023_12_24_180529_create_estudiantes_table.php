@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('estudiantes', function (Blueprint $table) {
-            /*Instruccion para realizar borrado en cascada*/
+            /*Instrucción para realizar borrado en cascada*/
             $table->engine = "InnoDB";
-            /*Identificacion unica en la tabla*/
+            /*Identificación única en la tabla*/
             $table->bigIncrements("id");
             /*---campos--*/
             $table->string("nombres");

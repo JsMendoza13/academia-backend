@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('maestro_materia', function (Blueprint $table) {
             $table->id();
-            /*Clave foranea de Materia -> (->nullable()->default) Si existe un ID sin informacion se le asigna uno por default)*/
+            /*Clave foranea de Materia -> (->nullable()->default) Si existe un ID sin información se le asigna uno por default)*/
             $table->unsignedBigInteger('materia_id')->nullable()->default(0);
             /**FOREIGN entre tabla MATERIA con el campo materia_id ->onDelete (borrado en cascada) */
             $table->foreign('materia_id')->references('id')->on('materias')->onDelete('cascade');

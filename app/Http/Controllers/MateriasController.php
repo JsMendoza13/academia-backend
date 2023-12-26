@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Materia;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+
 
 class MateriasController extends Controller
 {
@@ -12,7 +14,9 @@ class MateriasController extends Controller
      */
     public function index()
     {
-        return Materia::all();
+        $materias = Materia::all();
+
+        return Inertia::render('Materias/Index', ['materias' => $materias]);
     }
 
     /**

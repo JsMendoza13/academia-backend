@@ -11,9 +11,7 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+
     public function run(): void
     {
         Estudiante::factory()->times(15)->create(); /*Se crean 15 datos de estudiantes*/
