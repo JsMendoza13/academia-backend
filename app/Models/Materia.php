@@ -15,21 +15,7 @@ class Materia extends Model
         'descripcion',
         'credito',
         'horas',
-        'areaConocimiento'
+        'areaConocimiento',
+        'electiva'
     ];
-
-    public function estudiantes()
-    {
-        return $this->belongsToMany(
-            Estudiante::class,
-            "estudiante_materia"
-        );
-    }
-    public function maestros()
-    {
-        return $this->belongsToMany(
-            Maestro::class,
-            "maestro_materia"
-        );
-    }
 }

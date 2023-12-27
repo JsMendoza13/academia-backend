@@ -14,21 +14,8 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        Estudiante::factory()->times(15)->create(); /*Se crean 15 datos de estudiantes*/
-        Maestro::factory()->times(6)->create(); /*Se crean 6 datos de maestros*/
-        Materia::factory()->times(8)->create()->each(function ($materia) {
-            $materia->estudiantes()->sync(
-                Estudiante::all()->random(3),
-                /*Se crean 8 materias y se le asigna de a 3 de manera random a los estudiantes*/
-            );
-        });
-        /**Se asignan maestros a materias que no tengan asignados maestros*/
-        foreach (Materia::all() as $materia) {
-            if (!$materia->maestros()->exists()) {
-                $materia->maestros()->attach(
-                    Maestro::factory()->create()->id
-                );
-            }
-        }
+        Materia::factory()->times(8)->create();
+        Estudiante::factory()->times(25)->create(); /*Se crean 25 datos de estudiantes*/
+        Maestro::factory()->times(8)->create(); /*Se crean 8 datos de maestros*/
     }
 }

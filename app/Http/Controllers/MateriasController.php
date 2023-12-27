@@ -9,27 +9,17 @@ use Inertia\Inertia;
 
 class MateriasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $materias = Materia::all();
-
-        return Inertia::render('Materias/Index', ['materias' => $materias]);
+        return Materia::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $inputs = $request->input();
@@ -41,9 +31,7 @@ class MateriasController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         $materias = Materia::find($id);
@@ -60,17 +48,13 @@ class MateriasController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, string $id)
     {
         $materias = Materia::find($id);
@@ -80,6 +64,7 @@ class MateriasController extends Controller
             $materias->credito = $request->credito;
             $materias->horas = $request->horas;
             $materias->areaConocimiento = $request->areaConocimiento;
+            $materias->electiva = $request->electiva;
             if ($materias->save()) {
                 return response()->json([
                     'data' => $materias,
@@ -99,9 +84,7 @@ class MateriasController extends Controller
         };
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(string $id)
     {
         $materias = Materia::find($id);

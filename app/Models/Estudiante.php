@@ -18,13 +18,8 @@ class Estudiante extends Model
         'direccion',
         'ciudad',
         'semestre',
-        'credito',
-        'nota'
+        'nota',
+        'id_materias'
 
     ];
-
-    public function materia()
-    {
-        return $this->belongsToMany(Materia::class, "estudiante_materia");
-    }
 }

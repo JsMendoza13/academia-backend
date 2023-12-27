@@ -14,13 +14,15 @@ class MateriaFactory extends Factory
 
         $electivas = ['Electiva', 'Obligatoria'];
 
+
         return [
             /**Se crean datos random por medio de faker */
             'nombre' => $this->faker->unique()->randomElement($asignaturas),
             'descripcion' => $this->faker->sentence(3),
             'credito' => $this->faker->randomDigit(),
             'horas' => rand(100, 900),
-            'areaConocimiento' => $this->faker->randomElement($electivas),
+            'areaConocimiento' => $this->faker->sentence(2),
+            'electiva' => $this->faker->randomElement($electivas)
 
         ];
     }

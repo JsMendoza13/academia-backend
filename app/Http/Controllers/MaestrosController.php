@@ -64,6 +64,7 @@ class MaestrosController extends Controller
             $maestro->telefono = $request->telefono;
             $maestro->direccion = $request->direccion;
             $maestro->ciudad = $request->ciudad;
+            $maestro->id_materias = $request->id_materias;
 
             if ($maestro->save()) {
                 return response()->json([

@@ -13,13 +13,12 @@ class EstudianteFactory extends Factory
         return [
             'nombres' => $this->faker->firstName(),
             'apellidos' => $this->faker->lastName(),
-            'telefono' => $this->faker->phoneNumber(),
+            'telefono' => $this->faker->e164phoneNumber(),
             'direccion' => $this->faker->address(),
             'ciudad' => $this->faker->city(),
-            'semestre' => $this->faker->randomDigit(),
-            'credito' => $this->faker->randomDigit(),
+            'semestre' => $this->faker->numberBetween(1, 9),
             'nota' => $this->faker->randomFloat(1, 0.0, 5.0),
-
+            'id_materias' => $this->faker->numberBetween(1, 8),
         ];
     }
 }

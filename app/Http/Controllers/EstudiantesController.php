@@ -67,8 +67,8 @@ class EstudiantesController extends Controller
             $estudiante->direccion = $request->direccion;
             $estudiante->ciudad = $request->ciudad;
             $estudiante->semestre = $request->semestre;
-            $estudiante->credito = $request->credito;
             $estudiante->nota = $request->nota;
+            $estudiante->id_materias = $request->id_materias;
             if ($estudiante->save()) {
                 return response()->json([
                     'data' => $estudiante,

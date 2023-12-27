@@ -14,9 +14,10 @@ class MaestroFactory extends Factory
             'nombres' => $this->faker->firstName(),
             'apellidos' => $this->faker->lastName(),
             'email' => $this->faker->email(),
-            'telefono' => $this->faker->phoneNumber(),
+            'telefono' => $this->faker->e164phoneNumber(),
             'direccion' => $this->faker->address(),
             'ciudad' => $this->faker->city(),
+            'id_materias' => $this->faker->numberBetween(1, 8),
         ];
     }
 }

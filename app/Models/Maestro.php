@@ -17,10 +17,6 @@ class Maestro extends Model
         'telefono',
         'direccion',
         'ciudad',
+        'id_materias'
     ];
-
-    public function materia()
-    {
-        return $this->belongsToMany(Materia::class, "maestro_materia");
-    }
 }

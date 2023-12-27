@@ -11,20 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('maestros', function (Blueprint $table) {
+        Schema::create('estudiantes', function (Blueprint $table) {
             /*Instrucción para realizar borrado en cascada*/
             $table->engine = "InnoDB";
-            /*Identificación única en la tabla */
+            /*Identificación única en la tabla*/
             $table->bigIncrements("id");
             /*---campos--*/
             $table->string("nombres");
             $table->string("apellidos");
-            $table->string("email");
             $table->string("telefono");
             $table->string("direccion");
             $table->string("ciudad");
-            /*Tiempo automático por laravel, actualizar, modificar*/
-            $table->timestamps();
+            $table->integer("semestre");
+            $table->float("nota");
+
+            /**FOREIGN entre tabla MATERIAS con el campo id_materia  */
+            $table->foreignId('id_materias')->constrained('materias')->onUpdate('cascade')->onDelete('restrict');
+            /*Tiempo automatico por laravel, actualizar modificar*/
         });
     }
 
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('maestros');
+        Schema::dropIfExists('estudiantes');
     }
 };
