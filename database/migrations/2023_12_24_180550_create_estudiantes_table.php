@@ -28,6 +28,7 @@ return new class extends Migration
             /**FOREIGN entre tabla MATERIAS con el campo id_materia  */
             $table->foreignId('id_materias')->constrained('materias')->onUpdate('cascade')->onDelete('restrict');
             /*Tiempo automatico por laravel, actualizar modificar*/
+            $table->timestamps();
         });
     }
 
